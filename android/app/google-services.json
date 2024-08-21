@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "458840070973",
+    "project_id": "tip-expanse-manager",
+    "storage_bucket": "tip-expanse-manager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458840070973:android:5c339f7855f0f003104354",
+        "android_client_info": {
+          "package_name": "com.example.trip_expance_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458840070973-gisk4s73o5rvuu7825i63bce34hdkc2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu6lV0YL4QkzGoYPA2tV43TidKFIsLyB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458840070973-gisk4s73o5rvuu7825i63bce34hdkc2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
