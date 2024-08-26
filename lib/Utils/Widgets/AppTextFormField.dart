@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
-import 'package:trip_expance_manager/Utils/Widgets/AppTextWidget.dart';
 
 /*
 Changes : Interchanged suffix icon and suffix widget
@@ -41,30 +39,25 @@ class AppTextFormField extends StatelessWidget {
       this.cursorColor,
       this.prefixIcon,
       this.expands = false,
-      this.fillColor = AppColors.textFormFieldColor,
+      this.fillColor = AppColors.white,
       this.borderWidth = 1.0,
       this.borderStyle = BorderStyle.solid,
       this.readOnly = false,
       this.maxLength,
       this.contentPadding,
       this.isValid,
-      this.textColor = AppColors.textFormFieldTextColor,
+      this.textColor = AppColors.black,
       this.border,
       this.enabledBorder,
       this.focusedBorder,
       this.borderColor,
       this.ontapOutside,
-      required this.titleText,
-      this.titleTextColor,
-      this.borderRadius,
       this.hintTextSize = 14})
       : super(key: key);
-  final Color? titleTextColor;
+
   final Function(dynamic val)? onChanged;
   final String hintText;
-  final String titleText;
   final double hintTextSize;
-  final double? borderRadius;
   final TextInputType? keyboardType;
   final Function()? onEditingComplete;
   final Function(String val)? onFieldSubmitted;
@@ -108,110 +101,82 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: AppColors.textFormFieldColor,
-          borderRadius: BorderRadius.circular(borderRadius ?? 15.r)),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 10.h, left: 10.w),
-                  child: AppTextWidget(
-                    txtTitle: titleText.tr,
-                    txtColor:
-                        titleTextColor ?? AppColors.textFormFieldTextColor,
-                  ),
-                ),
-                TextFormField(
-                  expands: expands,
-                  textAlign: txtAlign,
-                  enabled: !readOnly,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: controller,
-                  keyboardType: keyboardType,
-                  obscureText: obscureText,
-                  focusNode: focusNode,
-                  autofocus: autoFocus,
-                  cursorColor: cursorColor,
-                  maxLength: maxLength,
-                  maxLines: maxLine,
-                  style: TextStyle(
-                      color: textColor,
-                      fontSize: fontSize.sp,
-                      fontWeight: fontWeight,
-                      overflow: TextOverflow.ellipsis),
-                  textInputAction: textInputAction,
-                  textCapitalization: textCapitalization,
-                  readOnly: readOnly,
-                  decoration: InputDecoration(
-                    counterText: "",
-                    enabledBorder: _getOutlineFocusBorder(),
-                    border: _getOutlineFocusBorder(),
-                    focusedBorder: _getOutlineFocusBorder(),
-                    errorStyle:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 12.sp),
-                    prefixIcon: isValid != null
-                        ? (isValid!
-                            ? const Icon(
-                                Icons.check,
-                                color: AppColors.success,
-                              )
-                            : const Icon(
-                                Icons.close,
-                                color: AppColors.error,
-                              ))
-                        : prefixIcon,
-                    contentPadding: contentPadding ??
-                        EdgeInsets.only(top: 0, bottom: 10.h, left: 10.w),
+    return TextFormField(
+      expands: expands,
+      textAlign: txtAlign,
+      enabled: !readOnly,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: controller,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      focusNode: focusNode,
+      autofocus: autoFocus,
+      cursorColor: cursorColor,
+      maxLength: maxLength,
+      maxLines: maxLine,
+      style: TextStyle(
+          color: textColor,
+          fontSize: fontSize.sp,
+          fontWeight: fontWeight,
+          overflow: TextOverflow.ellipsis),
+      textInputAction: textInputAction,
+      textCapitalization: textCapitalization,
+      readOnly: readOnly,
+      decoration: InputDecoration(
+        counterText: "",
+        enabledBorder: _getOutlineBorder(),
+        border: _getOutlineBorder(),
+        focusedBorder: _getOutlineFocuseBorder(),
+        errorStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.sp),
+        prefixIcon: isValid != null
+            ? (isValid!
+                ? const Icon(
+                    Icons.check,
+                    color: AppColors.success,
+                  )
+                : const Icon(
+                    Icons.close,
+                    color: AppColors.error,
+                  ))
+            : prefixIcon,
+        contentPadding:
+            contentPadding ?? EdgeInsets.only(top: 0, bottom: 15.h, left: 20.w),
 
-                    // isDense: true,
-                    errorText: errorTxt,
-                    icon: sideButton,
-                    // suffix: suffixWidget,
-                    // previously it was suffixIcon
-                    suffixIcon: suffixIcon,
-                    // previously it was suffixWidget
-                    suffixStyle: suffixStyle,
-                    filled: true,
-                    alignLabelWithHint: true,
-                    hintText: hintText.tr,
-                    // label: AppTextWidget(
-                    //   txtTitle: label ?? hintText,
-                    //   fontSize: 12,
-                    //   txtColor: hintTextColor ?? AppColors.hintText,
-                    // ),
-                    // floatingLabelAlignment: FloatingLabelAlignment.start,
-                    // floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    // hintText: hintText,
-                    hintStyle: TextStyle(
-                        color: hintTextColor ?? AppColors.black,
-                        fontSize: hintTextSize,
-                        fontWeight: FontWeight.w400),
-                    fillColor: fillColor,
-                  ),
-                  onChanged: onChanged,
-                  onEditingComplete: onEditingComplete,
-                  onFieldSubmitted: onFieldSubmitted,
-                  autocorrect: autoCorrect,
-                  validator: validator,
-                  inputFormatters: inputFormatters,
-                  onTapOutside: ontapOutside ??
-                      (value) {
-                        FocusScope.of(context).unfocus();
-                      },
-                ),
-              ],
-            ),
-          ),
-          if (suffixWidget != null) suffixWidget ?? SizedBox.shrink(),
-          10.horizontalSpace
-        ],
+        // isDense: true,
+        errorText: errorTxt,
+        icon: sideButton,
+        suffix: suffixWidget,
+        // previously it was suffixIcon
+        suffixIcon: suffixIcon,
+        // previously it was suffixWidget
+        suffixStyle: suffixStyle,
+        filled: true,
+        alignLabelWithHint: true,
+        hintText: hintText.tr,
+        // label: AppTextWidget(
+        //   txtTitle: label ?? hintText,
+        //   fontSize: 12,
+        //   txtColor: hintTextColor ?? AppColors.hintText,
+        // ),
+        // floatingLabelAlignment: FloatingLabelAlignment.start,
+        // floatingLabelBehavior: FloatingLabelBehavior.auto,
+        // hintText: hintText,
+        hintStyle: TextStyle(
+            color: hintTextColor ?? AppColors.black,
+            fontSize: hintTextSize,
+            fontWeight: FontWeight.w400),
+        fillColor: fillColor,
       ),
+      onChanged: onChanged,
+      onEditingComplete: onEditingComplete,
+      onFieldSubmitted: onFieldSubmitted,
+      autocorrect: autoCorrect,
+      validator: validator,
+      inputFormatters: inputFormatters,
+      onTapOutside: ontapOutside ??
+          (value) {
+            FocusScope.of(context).unfocus();
+          },
     );
   }
 
@@ -224,18 +189,8 @@ class AppTextFormField extends StatelessWidget {
             width: borderWidth));
   }
 
-  InputBorder _getOutlineFocusBorder() {
+  InputBorder _getOutlineFocuseBorder() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide.none
-        // BorderSide(
-        // style: borderStyle,
-        // color: borderColor ?? AppColors.black.withOpacity(0.1),
-        // width: borderWidth)
-        );
-  }
-
-  InputBorder _getLineInput() {
-    return UnderlineInputBorder(
         borderRadius: BorderRadius.circular(10.r),
         borderSide: BorderSide(
             style: borderStyle,
