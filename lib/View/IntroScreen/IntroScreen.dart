@@ -60,7 +60,7 @@ class IntroScreen extends StatelessWidget {
                           child: AppTextWidget(
                             txtTitle: IntroEnum.values[index].value.subTitle,
                             fontWeight: FontWeight.w400,
-                            txtColor: AppColors.darkgrey,
+                            txtColor: AppColors.darkGrey,
                             fontSize: 14,
                             textAlign: TextAlign.center,
                           ),
