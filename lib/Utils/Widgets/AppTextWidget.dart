@@ -45,7 +45,7 @@ class AppTextWidget extends StatelessWidget {
         fontStyle: fontStyle,
         fontSize: fontSize.sp,
         decoration: decoration,
-        decorationColor: AppColors.white,
+        decorationColor: txtColor,
         decorationThickness: 2,
         fontFamily: fontFamily,
       ),

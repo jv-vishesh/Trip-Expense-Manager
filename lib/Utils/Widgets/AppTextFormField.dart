@@ -7,7 +7,7 @@ import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
 /*
 Changes : Interchanged suffix icon and suffix widget
  */
-class AppTextFormField extends StatelessWidget {
+class AppTextFormField extends StatefulWidget {
   const AppTextFormField(
       {Key? key,
       this.onChanged,
@@ -51,8 +51,10 @@ class AppTextFormField extends StatelessWidget {
       this.enabledBorder,
       this.focusedBorder,
       this.borderColor,
+      this.borderRadius,
       this.ontapOutside,
-      this.hintTextSize = 14})
+      this.hintTextSize = 14,
+      this.isPassword})
       : super(key: key);
 
   final Function(dynamic val)? onChanged;
@@ -94,42 +96,52 @@ class AppTextFormField extends StatelessWidget {
   final Color textColor;
   final EdgeInsets? contentPadding;
   final bool? isValid;
+  final bool? isPassword;
   final int? maxLine;
   final InputBorder? border;
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
+  final double? borderRadius;
+
+  @override
+  State<AppTextFormField> createState() => _AppTextFormFieldState();
+}
+
+class _AppTextFormFieldState extends State<AppTextFormField> {
+  bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      expands: expands,
-      textAlign: txtAlign,
-      enabled: !readOnly,
+      expands: widget.expands,
+      textAlign: widget.txtAlign,
+      enabled: !widget.readOnly,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      controller: controller,
-      keyboardType: keyboardType,
-      obscureText: obscureText,
-      focusNode: focusNode,
-      autofocus: autoFocus,
-      cursorColor: cursorColor,
-      maxLength: maxLength,
-      maxLines: maxLine,
+      controller: widget.controller,
+      keyboardType: widget.keyboardType,
+      obscureText:
+          widget.isPassword != null ? !showPassword : widget.obscureText,
+      focusNode: widget.focusNode,
+      autofocus: widget.autoFocus,
+      cursorColor: widget.cursorColor,
+      maxLength: widget.maxLength,
+      maxLines: widget.maxLine,
       style: TextStyle(
-          color: textColor,
-          fontSize: fontSize.sp,
-          fontWeight: fontWeight,
+          color: widget.textColor,
+          fontSize: widget.fontSize.sp,
+          fontWeight: widget.fontWeight,
           overflow: TextOverflow.ellipsis),
-      textInputAction: textInputAction,
-      textCapitalization: textCapitalization,
-      readOnly: readOnly,
+      textInputAction: widget.textInputAction,
+      textCapitalization: widget.textCapitalization,
+      readOnly: widget.readOnly,
       decoration: InputDecoration(
         counterText: "",
         enabledBorder: _getOutlineBorder(),
         border: _getOutlineBorder(),
         focusedBorder: _getOutlineFocuseBorder(),
         errorStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.sp),
-        prefixIcon: isValid != null
-            ? (isValid!
+        prefixIcon: widget.isValid != null
+            ? (widget.isValid!
                 ? const Icon(
                     Icons.check,
                     color: AppColors.success,
@@ -138,21 +150,33 @@ class AppTextFormField extends StatelessWidget {
                     Icons.close,
                     color: AppColors.error,
                   ))
-            : prefixIcon,
-        contentPadding:
-            contentPadding ?? EdgeInsets.only(top: 0, bottom: 15.h, left: 20.w),
+            : widget.prefixIcon,
+        contentPadding: widget.contentPadding ??
+            EdgeInsets.only(top: 0, bottom: 15.h, left: 20.w),
 
         // isDense: true,
-        errorText: errorTxt,
-        icon: sideButton,
-        suffix: suffixWidget,
+        errorText: widget.errorTxt,
+        icon: widget.sideButton,
+        suffix: widget.suffixWidget,
         // previously it was suffixIcon
-        suffixIcon: suffixIcon,
+        suffixIcon: widget.isPassword != null
+            ? InkWell(
+                onTap: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                child: Icon(
+                  showPassword ? Icons.visibility_off : Icons.visibility,
+                  color: AppColors.primary,
+                  size: 28,
+                ))
+            : widget.suffixIcon,
         // previously it was suffixWidget
-        suffixStyle: suffixStyle,
+        suffixStyle: widget.suffixStyle,
         filled: true,
         alignLabelWithHint: true,
-        hintText: hintText.tr,
+        hintText: widget.hintText.tr,
         // label: AppTextWidget(
         //   txtTitle: label ?? hintText,
         //   fontSize: 12,
@@ -162,18 +186,18 @@ class AppTextFormField extends StatelessWidget {
         // floatingLabelBehavior: FloatingLabelBehavior.auto,
         // hintText: hintText,
         hintStyle: TextStyle(
-            color: hintTextColor ?? AppColors.black,
-            fontSize: hintTextSize,
+            color: widget.hintTextColor ?? AppColors.black,
+            fontSize: widget.hintTextSize,
             fontWeight: FontWeight.w400),
-        fillColor: fillColor,
+        fillColor: widget.fillColor,
       ),
-      onChanged: onChanged,
-      onEditingComplete: onEditingComplete,
-      onFieldSubmitted: onFieldSubmitted,
-      autocorrect: autoCorrect,
-      validator: validator,
-      inputFormatters: inputFormatters,
-      onTapOutside: ontapOutside ??
+      onChanged: widget.onChanged,
+      onEditingComplete: widget.onEditingComplete,
+      onFieldSubmitted: widget.onFieldSubmitted,
+      autocorrect: widget.autoCorrect,
+      validator: widget.validator,
+      inputFormatters: widget.inputFormatters,
+      onTapOutside: widget.ontapOutside ??
           (value) {
             FocusScope.of(context).unfocus();
           },
@@ -182,19 +206,19 @@ class AppTextFormField extends StatelessWidget {
 
   InputBorder _getOutlineBorder() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(widget.borderRadius ?? 10.r),
         borderSide: BorderSide(
-            style: borderStyle,
-            color: borderColor ?? AppColors.black.withOpacity(0.1),
-            width: borderWidth));
+            style: widget.borderStyle,
+            color: widget.borderColor ?? AppColors.black.withOpacity(0.1),
+            width: widget.borderWidth));
   }
 
   InputBorder _getOutlineFocuseBorder() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(widget.borderRadius ?? 10.r),
         borderSide: BorderSide(
-            style: borderStyle,
-            color: borderColor ?? AppColors.black.withOpacity(0.1),
-            width: borderWidth));
+            style: widget.borderStyle,
+            color: widget.borderColor ?? AppColors.black.withOpacity(0.1),
+            width: widget.borderWidth));
   }
 }

@@ -8,7 +8,7 @@ import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
           apiKey: 'AIzaSyCu6lV0YL4QkzGoYPA2tV43TidKFIsLyB8',
           appId: "1:458840070973:android:5c339f7855f0f003104354",
           messagingSenderId: "458840070973",
