@@ -39,9 +39,9 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage("https://cdn.pixabay.com/photo/2024/05/27/12/27/gargoyle-8791108_640.jpg"),
+                     CircleAvatar(
+                      radius: 40.r,
+                      backgroundImage: const NetworkImage("https://cdn.pixabay.com/photo/2024/05/27/12/27/gargoyle-8791108_640.jpg"),
                     ),
                     10.horizontalSpace,
                     const Column(
