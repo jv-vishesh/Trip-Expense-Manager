@@ -57,7 +57,7 @@ class IntroScreen extends StatelessWidget {
                             txtTitle:
                                 "Become your own money manager and make every cent count",
                             fontWeight: FontWeight.w400,
-                            txtColor: AppColors.darkgrey,
+                            txtColor: AppColors.darkGrey,
                             fontSize: 14,
                             textAlign: TextAlign.center,
                           ),
