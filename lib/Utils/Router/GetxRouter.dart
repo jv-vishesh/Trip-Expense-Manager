@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trip_expance_manager/Bindings/AccountScreenBinding.dart';
+import 'package:trip_expance_manager/Bindings/ProfileScreenBinding.dart';
 import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 import 'package:trip_expance_manager/View/Auth/LogInScreen.dart';
 import 'package:trip_expance_manager/View/Auth/SignUpScreen.dart';
 import 'package:trip_expance_manager/View/BottomNavigationBar/BottomBar.dart';
 import 'package:trip_expance_manager/View/HomeScreen/HomeScreen.dart';
 import 'package:trip_expance_manager/View/IntroScreen/IntroScreen.dart';
+import 'package:trip_expance_manager/View/Profile/Account/AccountScreen.dart';
+import 'package:trip_expance_manager/View/Profile/ProfileScreen.dart';
 
 Route<dynamic>? generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -39,6 +43,18 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
           page: () => const BottomBar(),
           settings: settings,
           bindings: []);
+    case RoutesName.profileScreen:
+      return getPageRoutes(
+          routeName: RoutesName.profileScreen,
+          page: () => const ProfileScreen(),
+          settings: settings,
+          bindings: [ProfileScreenBinding()]);
+    case RoutesName.accountScreen:
+      return getPageRoutes(
+          routeName: RoutesName.accountScreen,
+          page: () => const AccountScreen(),
+          settings: settings,
+          bindings: [ProfileScreenBinding(), AccountScreenBinding()]);
     default:
       return getPageRoutes(
           routeName: RoutesName.introScreen,
