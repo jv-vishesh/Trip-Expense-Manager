@@ -68,12 +68,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                     ],
                   ),
                   30.verticalSpace,
-                  const ProfileContainerWidget(), 150.verticalSpace,
-                  Container(
-                    height: 200,
-                    width: 100,
-                    decoration: BoxDecoration(color: AppColors.black),
-                  )
+                  const ProfileContainerWidget(),
                 ],
               ),
             ),
