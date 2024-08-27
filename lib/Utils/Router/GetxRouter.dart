@@ -4,7 +4,7 @@ import 'package:trip_expance_manager/Bindings/AccountScreenBinding.dart';
 import 'package:trip_expance_manager/Bindings/ProfileScreenBinding.dart';
 import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 import 'package:trip_expance_manager/View/Auth/IntroScreen/IntroScreen.dart';
-import 'package:trip_expance_manager/View/Profile/AccountScreen.dart';
+import 'package:trip_expance_manager/View/Profile/Account/AccountScreen.dart';
 import 'package:trip_expance_manager/View/Profile/ProfileScreen.dart';
 
 Route<dynamic>? generateRoute(RouteSettings settings) {
