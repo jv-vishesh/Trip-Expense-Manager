@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         builder: (context, _) {
           return const GetMaterialApp(
-            debugShowCheckedModeBanner: false,
+              debugShowCheckedModeBanner: false,
               title: 'Trip Go',
               onGenerateRoute: generateRoute,
-              initialRoute: RoutesName.profileScreen);
+              initialRoute: RoutesName.introScreen);
         });
   }
 }

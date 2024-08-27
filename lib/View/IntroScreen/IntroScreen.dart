@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:trip_expance_manager/Utils/Constants/AppAssets.dart';
 import 'package:trip_expance_manager/Utils/Constants/EnumClass.dart';
 import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
