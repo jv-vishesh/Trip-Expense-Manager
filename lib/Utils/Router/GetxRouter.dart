@@ -36,7 +36,7 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
           routeName: RoutesName.bottomBarScreen,
           page: () => const BottomBar(),
           settings: settings,
-          bindings: []);
+          bindings: [ProfileScreenBinding(), AccountScreenBinding()]);
     case RoutesName.homeScreen:
       return getPageRoutes(
           routeName: RoutesName.homeScreen,
@@ -56,6 +56,7 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
           settings: settings,
           bindings: [ProfileScreenBinding(), AccountScreenBinding()]);
   }
+  return null;
 }
 
 PageRoute getPageRoutes(

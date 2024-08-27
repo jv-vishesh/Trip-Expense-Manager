@@ -6,7 +6,6 @@ import 'package:trip_expance_manager/Controllers/ProfileScreenController.dart';
 import 'package:trip_expance_manager/Utils/Constants/AppAssets.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
 import 'package:trip_expance_manager/Utils/Widgets/AppTextWidget.dart';
-import 'package:trip_expance_manager/Utils/Widgets/CachedNetworkImageWidget.dart';
 import 'package:trip_expance_manager/View/ProfileScreen/Widgets/ProfileContainerWidget.dart';
 
 class ProfileScreen extends GetView<ProfileScreenController> {
