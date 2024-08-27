@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Trip Go',
               onGenerateRoute: generateRoute,
-              initialRoute: RoutesName.profileScreen);
+              initialRoute: RoutesName.introScreen);
         });
   }
 }
