@@ -12,92 +12,61 @@ class ProfileContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      height: 356.h,
+      height: 256.h,
       width: 356.w,
+      padding:  EdgeInsets.symmetric(horizontal: 10.0.w,vertical: 20.h),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(24.r)),
-      child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 10.0.w,vertical: 20.h),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ListTile(
-              onTap: (){
-                Get.toNamed(RoutesName.accountScreen);
-              },
-              leading: SvgPicture.asset(
-                  height: 52.h,
-                  width: 52.w,
-                  fit: BoxFit.cover,
-                  AppAssets.walletImage),
-              title: AppTextWidget(
-                txtTitle: "Account",
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ListTile(
+            onTap: (){
+              Get.toNamed(RoutesName.accountScreen);
+            },
+            leading: SvgPicture.asset(
+                height: 52.h,
+                width: 52.w,
+                fit: BoxFit.cover,
+                AppAssets.walletImage),
+            title: AppTextWidget(
+              txtTitle: "Account",
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
             ),
-            ListTile(
-              onTap: (){
-                print("object");
-              },
-              leading: SvgPicture.asset(
-                  height: 52.h,
-                  width: 52.w,
-                  fit: BoxFit.cover,
-                  AppAssets.settingsImage),
-              title: AppTextWidget(
-                txtTitle: "Settings",
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+          ),
+          ListTile(
+            onTap: (){
+              print("object");
+            },
+            leading: SvgPicture.asset(
+                height: 52.h,
+                width: 52.w,
+                fit: BoxFit.cover,
+                AppAssets.settingsImage),
+            title: AppTextWidget(
+              txtTitle: "Settings",
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
             ),
-            ListTile(
-              onTap: (){
-                print("object");
-              },
-              leading: SvgPicture.asset(
-                  height: 52.h,
-                  width: 52.w,
-                  fit: BoxFit.cover,
-                  AppAssets.exportDataImage),
-              title: AppTextWidget(
-                txtTitle: "Export Data",
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+          ),
+          ListTile(
+            onTap: (){
+              print("object");
+            },
+            leading: SvgPicture.asset(
+                height: 52.h,
+                width: 52.w,
+                fit: BoxFit.cover,
+                AppAssets.logoutImage),
+            title: AppTextWidget(
+              txtTitle: "Logout",
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
             ),
-            ListTile(
-              onTap: (){
-                print("object");
-              },
-              leading: SvgPicture.asset(
-                  height: 52.h,
-                  width: 52.w,
-                  fit: BoxFit.cover,
-                  AppAssets.logoutImage),
-              title: AppTextWidget(
-                txtTitle: "Logout",
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            // ListView.builder(
-            //   shrinkWrap: true,
-            //   itemCount: controller.profileList.length,
-            //     itemBuilder: (context,index){
-            //   return
-            //   ListTile(
-            //     onTap: controller.profileList[index].onTap,
-            //     leading: SvgPicture.asset(controller.profileList[index].imagePath),
-            //     title: AppTextWidget(
-            //       txtTitle: controller.profileList[index].title,
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w500,
-            //     ));
-            // })
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

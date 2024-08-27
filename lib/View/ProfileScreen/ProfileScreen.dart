@@ -36,7 +36,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                   //   ),
                   // ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       CircleAvatar(
                         radius: 40.r,
@@ -47,23 +47,27 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // AppTextWidget(
+                          //   txtTitle: "UserName",
+                          //   fontSize: 14,
+                          //   txtColor: AppColors.darkGrey,
+                          //   fontWeight: FontWeight.w500,
+                          // ),
                           AppTextWidget(
-                            txtTitle: "UserName",
+                            txtTitle: "Vishesh Patel",
                             fontSize: 14,
                             txtColor: AppColors.darkGrey,
                             fontWeight: FontWeight.w500,
                           ),
-                          AppTextWidget(
-                            txtTitle: "Vishesh Patel",
-                            fontSize: 24,
+                           AppTextWidget(
+                            txtTitle: "vp12@gmail.com",
+                            fontSize: 20,
+                            txtColor: AppColors.black,
                             fontWeight: FontWeight.w600,
-                          )
+                          ),
                         ],
                       ),
-                      const Spacer(),
-                      InkWell(
-                          onTap: () {},
-                          child: SvgPicture.asset(AppAssets.editImage))
+                      
                     ],
                   ),
                   30.verticalSpace,
