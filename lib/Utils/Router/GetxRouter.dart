@@ -8,7 +8,7 @@ import 'package:trip_expance_manager/View/Auth/SignUpScreen.dart';
 import 'package:trip_expance_manager/View/BottomNavigationBar/BottomBar.dart';
 import 'package:trip_expance_manager/View/HomeScreen/HomeScreen.dart';
 import 'package:trip_expance_manager/View/IntroScreen/IntroScreen.dart';
-import 'package:trip_expance_manager/View/Profile/AccountScreen.dart';
+import 'package:trip_expance_manager/View/Profile/Account/AccountScreen.dart';
 import 'package:trip_expance_manager/View/Profile/ProfileScreen.dart';
 
 Route<dynamic>? generateRoute(RouteSettings settings) {
