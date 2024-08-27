@@ -1,10 +1,7 @@
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trip_expance_manager/Utils/Constants/AppAssets.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
-import 'package:trip_expance_manager/Utils/Widgets/AppTextWidget.dart';
 import 'package:trip_expance_manager/View/HistoryScreen/HistoryScreen.dart';
 import 'package:trip_expance_manager/View/HomeScreen/HomeScreen.dart';
 import 'package:trip_expance_manager/View/ProfileScreen/ProfileScreen.dart';

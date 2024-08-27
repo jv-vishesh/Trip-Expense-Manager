@@ -43,7 +43,7 @@ class SignUpScreen extends StatelessWidget {
               50.verticalSpace,
               AppTextFormField(
                 hintText: "Name",
-                hintTextColor: AppColors.darkgrey,
+                hintTextColor: AppColors.darkGrey,
                 borderRadius: 15,
                 fontSize: 16,
                 contentPadding:
@@ -53,7 +53,7 @@ class SignUpScreen extends StatelessWidget {
               10.verticalSpace,
               AppTextFormField(
                 hintText: "Email",
-                hintTextColor: AppColors.darkgrey,
+                hintTextColor: AppColors.darkGrey,
                 borderRadius: 15,
                 fontSize: 16,
                 contentPadding:
@@ -64,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
               AppTextFormField(
                 isPassword: true,
                 hintText: "Password",
-                hintTextColor: AppColors.darkgrey,
+                hintTextColor: AppColors.darkGrey,
                 borderRadius: 15,
                 fontSize: 16,
                 contentPadding:
@@ -75,7 +75,7 @@ class SignUpScreen extends StatelessWidget {
               AppTextFormField(
                 isPassword: true,
                 hintText: "Confirm Password",
-                hintTextColor: AppColors.darkgrey,
+                hintTextColor: AppColors.darkGrey,
                 borderRadius: 15,
                 fontSize: 16,
                 contentPadding:
@@ -122,7 +122,7 @@ class SignUpScreen extends StatelessWidget {
                 txtTitle: "Or with",
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
-                txtColor: AppColors.darkgrey,
+                txtColor: AppColors.darkGrey,
               ),
               15.verticalSpace,
               AppButtonWidget(
@@ -157,7 +157,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   const AppTextWidget(
                     txtTitle: "Already have an account? ",
-                    txtColor: AppColors.darkgrey,
+                    txtColor: AppColors.darkGrey,
                     fontSize: 16,
                   ),
                   InkWell(

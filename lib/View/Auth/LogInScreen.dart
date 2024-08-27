@@ -38,7 +38,7 @@ class LogInScreen extends StatelessWidget {
               100.verticalSpace,
               AppTextFormField(
                 hintText: "Email",
-                hintTextColor: AppColors.darkgrey,
+                hintTextColor: AppColors.darkGrey,
                 borderRadius: 15,
                 fontSize: 16,
                 contentPadding:
@@ -49,7 +49,7 @@ class LogInScreen extends StatelessWidget {
               AppTextFormField(
                 hintText: "Password",
                 isPassword: true,
-                hintTextColor: AppColors.darkgrey,
+                hintTextColor: AppColors.darkGrey,
                 borderRadius: 15,
                 fontSize: 16,
                 contentPadding:
@@ -82,7 +82,7 @@ class LogInScreen extends StatelessWidget {
                 children: [
                   const AppTextWidget(
                     txtTitle: "Don’t have an account yet? ",
-                    txtColor: AppColors.darkgrey,
+                    txtColor: AppColors.darkGrey,
                     fontSize: 16,
                   ),
                   InkWell(
