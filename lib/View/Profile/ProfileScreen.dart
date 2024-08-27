@@ -23,21 +23,8 @@ class ProfileScreen extends GetView<ProfileScreenController> {
             padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 50.h),
             child: Column(
               children: [
-                // ListTile(
-                //   tileColor: Colors.yellow,
-                //   title: AppTextWidget(txtTitle: "txtTitle"),
-                //   subtitle: AppTextWidget(txtTitle: "txtTitle"),
-                //   trailing: IconButton(onPressed: (){}, icon: Icon(
-                //     Icons.add
-                //   )),
-                //   contentPadding: EdgeInsets.zero,
-                //   leading: CircleAvatar(
-                //     radius: 50,
-                //     backgroundColor: Colors.red,
-                //   ),
-                // ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                      CircleAvatar(
                       radius: 40.r,
@@ -60,12 +47,24 @@ class ProfileScreen extends GetView<ProfileScreenController> {
                         )
                       ],
                     ),
-                    const Spacer(),
-                    InkWell(
-                        onTap: () {}, child: SvgPicture.asset(AppAssets.editImage))
+
                   ],
                 ),
                 30.verticalSpace,
+                // ListView.builder(
+                //   shrinkWrap: true,
+                //   itemCount: controller.profileList.length,
+                //     itemBuilder: (context,index){
+                //   return
+                //   ListTile(
+                //     onTap: controller.profileList[index].onTap,
+                //     leading: SvgPicture.asset(controller.profileList[index].imagePath),
+                //     title: AppTextWidget(
+                //       txtTitle: controller.profileList[index].title,
+                //       fontSize: 16,
+                //       fontWeight: FontWeight.w500,
+                //     ));
+                // })
               const  ProfileContainerWidget()
               ],
             ),
