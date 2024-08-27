@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 import 'package:trip_expance_manager/View/Auth/LogInScreen.dart';
 import 'package:trip_expance_manager/View/Auth/SignUpScreen.dart';
+import 'package:trip_expance_manager/View/BottomNavigationBar/BottomBar.dart';
+import 'package:trip_expance_manager/View/HomeScreen/HomeScreen.dart';
 import 'package:trip_expance_manager/View/IntroScreen/IntroScreen.dart';
 
 Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -23,6 +25,18 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
       return getPageRoutes(
           routeName: RoutesName.loginScreen,
           page: () => const LogInScreen(),
+          settings: settings,
+          bindings: []);
+    case RoutesName.homeScreen:
+      return getPageRoutes(
+          routeName: RoutesName.homeScreen,
+          page: () => const HomeScreen(),
+          settings: settings,
+          bindings: []);
+    case RoutesName.bottomBarScreen:
+      return getPageRoutes(
+          routeName: RoutesName.bottomBarScreen,
+          page: () => const BottomBar(),
           settings: settings,
           bindings: []);
     default:

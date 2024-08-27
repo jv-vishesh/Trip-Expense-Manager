@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   get: ^4.6.6
   cached_network_image: ^3.3.1
-  flutter_svg: ^2.0.10+1
+  flutter_svg: ^1.1.6
   flutter_screenutil: ^5.9.0
   shared_preferences: ^2.2.2
   intl: ^0.18.1
@@ -45,6 +45,7 @@ dependencies:
   cloud_firestore: ^5.2.1
   card_swiper: ^3.0.1
   lottie: ^3.1.2
+  circular_bottom_navigation: ^2.4.0
 
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/animation/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

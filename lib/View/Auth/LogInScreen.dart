@@ -58,7 +58,9 @@ class LogInScreen extends StatelessWidget {
               ),
               30.verticalSpace,
               AppButtonWidget(
-                onPressed: () {},
+                onPressed: () {
+                  Get.offNamed(RoutesName.bottomBarScreen);
+                },
                 btnName: 'Log In',
                 btnColor: AppColors.primary,
                 width: double.maxFinite,
