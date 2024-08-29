@@ -1,6 +1,8 @@
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:trip_expance_manager/Utils/Constants/AppAssets.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
 import 'package:trip_expance_manager/View/HistoryScreen/HistoryScreen.dart';
 import 'package:trip_expance_manager/View/HomeScreen/HomeScreen.dart';
@@ -20,33 +22,53 @@ class _BottomBarState extends State<BottomBar> {
     const HomeScreen(),
     const ProfileScreen()
   ];
-  late CircularBottomNavigationController _navigationController;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _navigationController = CircularBottomNavigationController(index);
-  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: screens[index],
-        bottomNavigationBar: CircularBottomNavigation(
-          [
-            TabItem(Icons.pie_chart_outline, 'History', AppColors.primary),
-            TabItem(Icons.home, 'Home', AppColors.primary),
-            TabItem(Icons.person, 'Profile', AppColors.primary),
+        bottomNavigationBar: CircleNavBar(
+          activeIndex: index,
+          activeIcons: const [
+            Icon(
+              Icons.pie_chart_outline,
+              size: 40,
+              color: AppColors.primary,
+            ),
+            Icon(
+              Icons.home,
+              size: 40,
+              color: AppColors.primary,
+            ),
+            Icon(
+              Icons.person,
+              size: 40,
+              color: AppColors.primary,
+            )
           ],
-          controller: _navigationController,
-          selectedCallback: (pageIndex) {
+          height: 70,
+          circleWidth: 70,
+          inactiveIcons: const [
+            Icon(
+              Icons.pie_chart_outline,
+              size: 40,
+            ),
+            Icon(
+              Icons.home,
+              size: 40,
+            ),
+            Icon(
+              Icons.person,
+              size: 40,
+            )
+          ],
+          color: AppColors.secondary,
+          onTap: (value) {
             setState(() {
-              index = pageIndex ?? 0;
+              index = value;
             });
           },
-          selectedPos: index,
         ),
       ),
     );

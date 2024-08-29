@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:trip_expance_manager/Controllers/AuthController.dart';
+import 'package:trip_expance_manager/Utils/Constants/AppAssets.dart';
 import 'package:trip_expance_manager/Utils/Constants/EnumClass.dart';
 import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
 import 'package:trip_expance_manager/Utils/Widgets/AppButtonWidget.dart';
 import 'package:trip_expance_manager/Utils/Widgets/AppTextWidget.dart';
 
-class IntroScreen extends StatelessWidget {
+class IntroScreen extends GetView<AuthController> {
   const IntroScreen({super.key});
 
   @override
@@ -18,7 +20,7 @@ class IntroScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          10.verticalSpace,
+          Spacer(),
           Center(
             child: Container(
               constraints: BoxConstraints(maxHeight: 550.h),
@@ -71,34 +73,37 @@ class IntroScreen extends StatelessWidget {
               ),
             ),
           ),
-          25.verticalSpace,
+          Spacer(),
           AppButtonWidget(
-            onPressed: () {
-              Get.toNamed(RoutesName.signUpScreen);
+            onPressed: () async {
+              await controller.authentication();
             },
-            btnName: 'Sign Up',
+            btnName: '',
             btnColor: AppColors.primary,
             width: double.maxFinite,
             fontSize: 18,
             borderRadius: 16,
             margin: EdgeInsets.symmetric(horizontal: 15.w),
             padding: EdgeInsets.symmetric(vertical: 15.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  AppAssets.googleIcon,
+                  height: 25.h,
+                  width: 25.h,
+                ),
+                10.horizontalSpace,
+                const AppTextWidget(
+                  txtTitle: "Login or Sign Up with google",
+                  txtColor: AppColors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                )
+              ],
+            ),
           ),
-          20.verticalSpace,
-          AppButtonWidget(
-            onPressed: () {
-              Get.toNamed(RoutesName.loginScreen);
-            },
-            btnName: 'Log In',
-            btnColor: AppColors.secondary,
-            width: double.maxFinite,
-            fontSize: 18,
-            txtColor: AppColors.primary,
-            borderRadius: 16,
-            margin: EdgeInsets.symmetric(horizontal: 15.w),
-            padding: EdgeInsets.symmetric(vertical: 15.h),
-          ),
-          20.verticalSpace
+          Spacer()
         ],
       ),
     );

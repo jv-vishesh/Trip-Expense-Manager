@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trip_expance_manager/Bindings/AccountScreenBinding.dart';
+import 'package:trip_expance_manager/Bindings/AuthBindings.dart';
 import 'package:trip_expance_manager/Bindings/ProfileScreenBinding.dart';
 import 'package:trip_expance_manager/Utils/Router/RouteName.dart';
 import 'package:trip_expance_manager/View/Auth/LogInScreen.dart';
@@ -18,7 +19,7 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
           routeName: RoutesName.introScreen,
           page: () => const IntroScreen(),
           settings: settings,
-          bindings: []);
+          bindings: [AuthBindings()]);
     case RoutesName.loginScreen:
       return getPageRoutes(
           routeName: RoutesName.loginScreen,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:lottie/lottie.dart';
 import 'package:trip_expance_manager/Utils/Constants/AppAssets.dart';
 import 'package:trip_expance_manager/Utils/Styling/AppColors.dart';
@@ -41,17 +42,55 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        floatingActionButton: AppButtonWidget(
-          padding: EdgeInsets.all(13.r),
-          borderRadius: 8,
-          onPressed: () {},
-          btnName: "",
-          btnColor: AppColors.primary,
-          child: Icon(
-            Icons.add,
-            color: AppColors.white,
-          ),
+        floatingActionButton: SpeedDial(
+          icon: Icons.add,
+          activeIcon: Icons.clear,
+          // animatedIcon: AnimatedIcons.menu_close,
+          overlayColor: AppColors.secondary,
+          overlayOpacity: 0.5,
+          animatedIconTheme:
+              const IconThemeData(size: 22, color: AppColors.white),
+          backgroundColor: AppColors.primary,
+          visible: true,
+          spacing: 10,
+          curve: Curves.bounceIn,
+          children: [
+            // FAB 1
+            SpeedDialChild(
+                child: const Icon(Icons.event),
+                backgroundColor: AppColors.secondary,
+                onTap: () {},
+                label: 'Join Trip',
+                labelStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 16.0),
+                labelBackgroundColor: AppColors.primary),
+
+            // FAB 2
+            SpeedDialChild(
+                child: const Icon(Icons.create),
+                backgroundColor: AppColors.secondary,
+                onTap: () {},
+                label: 'Create Trip',
+                labelStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 16.0),
+                labelBackgroundColor: AppColors.primary)
+          ],
         ),
+        // AppButtonWidget(
+        //   padding: EdgeInsets.all(13.r),
+        //   borderRadius: 8,
+        //   onPressed: () {},
+        //   btnName: "",
+        //   btnColor: AppColors.primary,
+        //   child: Icon(
+        //     Icons.add,
+        //     color: AppColors.white,
+        //   ),
+        // ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
